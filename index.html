@@ -278,16 +278,95 @@ void(0);		// undefined
 				</section>
 
 				<section>
-functional declarations
+					<section>
+						<h1>Functions</h1>
+					</section>
+					<section>
+						<h2>What are functions?</h2>
+						<ul>
+							<li>Groups of code designated to be run at a later time.</li>
+							<li>Represented by a variable</li>
+							<li>Must explicitly be called using ()'s </li>
+							<li>Return "undefined" by default</li>
+							<li>Local to the function, inside which, it is created</li>
+						</ul>
+						Functional Declaration
+						<pre><code data-trim contenteditable>
+function sayHi(toWho) {
+	return "Hello " + toWho;
+}							
+						</code></pre>
+						Better Functional Declaration?
+						<pre><code data-trim contenteditable>
+var sayHi = function(toWho) {
+	return "Hello " + toWho;
+}							
+						</code></pre>
+					</section>
+					<section>
+						<h2>Arguments object</h2>
+						<ul>
+							<li>Part of every function</li>
+							<li>Object that acts like an array</li>
+							<li>can use arguments.length to get number of args at invokation</li>
+						</ul>
+						<pre><code data-trim contenteditable>
+var myfunction = function(a, b){
+	console.log(arguments.length);
+}
+myfunction(1, 2, 3, 4, 5, 6);
+						</code></pre>
+					</section>
+					<section>
+						<h2>Immediately Invoked Functional Expression (IIFE)</h2>
+						<pre><code data-trim contenteditable>
+(function(toWho) {
+	return "Hello " + toWho;
+})("World!");	
+						</code></pre>
+						Used in jQuery to safely use the $
+						<pre><code data-trim contenteditable>
+(function($) {
+	return $("#myselector");
+})(jQuery);	
+						</code></pre>	
+						Drawbacks?
+						<ul>
+								<li>DOM may not have loaded yet. Surround with jQuery.ready() or put in footer</li>
+						</ul>					
+					</section>
 				</section>
 
-<section>
-	variable and functional hoisting
-</section>
+				<section>
+					<section>
+						<h1>Variable and Functional Hoisting</h1>
+					</section>
+					<section>
+				
+					</section>				
+				</section>
 
 <section>
 	literals
 </section>
+
+<section>
+	Coersion and Comparison
+</section>
+
+<section>
+	== vs ===
+</section>
+
+<section>
+	<section>
+		Objects
+	</section>
+	<section>
+		Object Prototypes
+	</section>
+</section>
+
 
 				<section>
 					<h1>Resources:</h1>
