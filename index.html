@@ -304,20 +304,6 @@ var sayHi = function(toWho) {
 						</code></pre>
 					</section>
 					<section>
-						<h2>Arguments object</h2>
-						<ul>
-							<li>Part of every function</li>
-							<li>Object that acts like an array</li>
-							<li>can use arguments.length to get number of args at invokation</li>
-						</ul>
-						<pre><code data-trim contenteditable>
-var myfunction = function(a, b){
-	console.log(arguments.length);
-}
-myfunction(1, 2, 3, 4, 5, 6);
-						</code></pre>
-					</section>
-					<section>
 						<h2>Immediately Invoked Functional Expression (IIFE)</h2>
 						<pre><code data-trim contenteditable>
 (function(toWho) {
@@ -332,8 +318,23 @@ myfunction(1, 2, 3, 4, 5, 6);
 						</code></pre>	
 						Drawbacks?
 						<ul>
-								<li>DOM may not have loaded yet. Surround with jQuery.ready() or put in footer</li>
+								<li>DOM may not have loaded yet. Surround with jQuery(document).ready() or put in footer</li>
 						</ul>					
+					</section>
+
+					<section>
+						<h2>Arguments object</h2>
+						<ul>
+							<li>Part of every function</li>
+							<li>Object that acts like an array</li>
+							<li>can use arguments.length to get number of args at invokation</li>
+						</ul>
+						<pre><code data-trim contenteditable>
+var myfunction = function(a, b){
+	console.log(arguments.length);
+}
+myfunction(1, 2, 3, 4, 5, 6);
+						</code></pre>
 					</section>
 				</section>
 
@@ -342,30 +343,231 @@ myfunction(1, 2, 3, 4, 5, 6);
 						<h1>Variable and Functional Hoisting</h1>
 					</section>
 					<section>
-				
+						<h2>Variable Hoisting</h2>
+						<ul>
+						 	<li>All declarations will be hoisted to the top of the local scope</li>
+						 	<li>Assignments are not hoisted</li>
+						 	<li>Can refer to a variable, not yet declared, but with no value, it will be undefined</li>
+						 </ul> 
+						 <pre><code data-trim contenteditable>
+var myvar = "my value";
+(function() {
+  console.log(myvar); // undefined
+  var myvar = "local value";
+})();
+						 </code></pre>
+						 Interpreted as:
+						 <pre><code data-trim contenteditable>
+var myvar = "my value";
+(function() {
+  var myvar;
+  console.log(myvar); // undefined
+  myvar = "local value";
+})();
+						 </code></pre>
 					</section>				
+					<section>
+						<h2>Functional Hoisting</h2>
+						<pre><code data-trim contenteditable>
+function hoistme(state) {
+  if (state) {
+    function getValue() { return "you expect this"; }
+  } else {
+    function getValue() { return "you get this, no matter what"; }
+  }
+  return getValue();
+}
+
+						</code></pre>
+						Interpretting as:
+						<pre><code data-trim contenteditable>
+function hoistme(state) {
+    function getValue() { return "you expect this"; }
+    function getValue() { return "you get this, no matter what"; }
+  if (state) {
+
+  } else {
+
+  }
+  return getValue();
+}
+						</code></pre>
+						do var getValue; at top of function instead
+
+					</section>
 				</section>
 
 <section>
-	literals
+	<section>
+		<h1>Literals</h1>
+	</section>
+	<section>
+		<h2>Fixed values you are literally/explicitly specifying</h2>
+		<ul>
+			<li>Array Literals</li>
+			<li>Boolean Literals</li>
+			<li>Floating-Point Literals</li>
+			<li>Integers</li>
+			<li>Object Literals</li>
+			<li>String Literals</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Array Literal</h3>
+		<pre><code data-trim contenteditable>
+var siteops = ['jim', 'alex', 'john', 'nick', 'bradley'];
+		</code></pre>
+		<h3>Object Literal</h3>
+		<pre><code data-trim contenteditable>
+var beer = { type: "IPA", packaging: "bottled", microbrew: false };
+console.log(beer.type);
+		</code></pre>
+		This is JSON (JavaScript Object Notation)
+	</section>
 </section>
+
+<section>
+	<section>
+		<h1>Objects</h1>
+	</section>
+	<section>
+		<h2>Objects</h2>
+		<p>Everything that is not a primitive is an object</p>
+		<pre><code data-trim contenteditable>
+var obj = new Object();	// new keyword w/ a constructor creates an object
+var obj = {};		// Less verbose
+		</code></pre>
+		<p>Objects are compared by reference.<br/>
+			Primitives are compared by value</p>
+		<pre><code data-trim contenteditable>
+var obj1 = {foo: 42};
+var obj2 = {foo: 42};
+
+obj1 === obj2		// false
+obj1.foo === obj2.foo 	// true
+		</code></pre>
+	</section>
+	<section>
+		Property names are always strings. Values can be anything
+		<pre><code data-trim contenteditable>
+var rps = {
+	values: ["rock", "paper", "scissors"];
+	attempts: 5;
+	winsNeeded: 3;
+	chant: "Rock! Paper! Scissors! Shoot!";
+	getWinner: function(player1, player2){
+		var winner;
+		switch(player1) {
+			case "rock":
+				winner = (player2 === "scissors") ? "player1"  :
+						(player2 === "paper") ? "player2" : 
+						"tie";
+				break;
+			case "paper":
+				winner = (player2 === "rock") ? "player1"  :
+						(player2 === "scissors") ? "player2" : 
+						"tie";
+				break;
+			case "scissors":
+				winner = (player2 === "paper") ? "player1"  :
+						(player2 === "rock") ? "player2" : 
+						"tie";
+				break;
+		}
+		return winner;
+	}
+}
+
+		</code></pre>
+	</section>
+	<section>
+		Object Prototypes
+	</section>
+</section>
+
 
 <section>
 	Coersion and Comparison
 </section>
 
 <section>
-	== vs ===
+	<section>
+		<h1>== vs ===</h1>
+	</section>
+	<section>
+		<h2>=== ("Strict Equality Comparison")</h2>
+		<pre><code data-trim contenteditable>
+// Type(x)          Values                                Result
+// Type(x) different from Type(y)...                      false
+// Undefined or Null                                      true
+// Number           x same value as y (but not NaN)       true
+// String           x and y are identical characters      true
+// Boolean          x and y are both true or both false   true
+// Object           x and y reference same object         true
+// Otherwise...                                           false
+		</code></pre>
+		(Copied from Ben Alman's JS notes)
+	</section>
+	<section>
+		<h2>== ("Abstract Equality Comparison")</h2>
+		Measure of Truthy vs Falsy
+		<pre><code data-trim contenteditable>
+// Type(x)              Type(y)               Result
+// If x and y are the same type...            Follow === operator rules.
+// Null                 Undefined             true
+// Undefined            Null                  true
+// Number               String                x == toNumber(y)
+// String               Number                toNumber(y) == x
+// Boolean              (any)                 toNumber(x) == y
+// (any)                Boolean               x == toNumber(y)
+// String or Number     Object                x == toPrimitive(y)
+// Object               String or Number      toPrimitive(x) == y
+// Otherwise...                               false
+		</code></pre>
+		(Copied from Ben Alman's JS notes)
+	</section>
+	<section>
+		<h3>5 falsy values (that are not actually false)</h3>
+		<ul>
+			<li>0</li>
+			<li>""</li>
+			<li>null</li>
+			<li>undefined</li>
+			<li>NaN</li>
+		</ul>
+		<p>falsy values coerce to false</p>
+		<p>Everything that is not falsy is truthy</p>
+		<pre><code data-trim contenteditable>
+if(null) { This will not execute }			
+if(!null) { This will execute }
+		</code></pre>
+	</section>
+	<section>
+		<h3>Falsy Quirks</h3>
+		<p>"", 0 and false are all equivalent</p>
+		<p>null and undefined are equivalent</p>
+		<pre><code data-trim contenteditable>
+null == undefined  // true
+null === undefined // false
+		</code></pre>
+		<p>NaN never does what you expect</p>
+		<pre><code data-trim contenteditable>
+NaN == NaN  // false
+NaN === NaN // false
+		</code></pre>
+		...And lots more
+	</section>
+	<section>
+		<h3>Takeaways</h3>
+		<ul>
+			<li>When checking for falsy/truthy, pass directly into if(), negating if necessary</li>
+			<li>Always use === or !== when comparing for truth or fallacy</li>
+			<li>Use == or != when comparing to null or undefined</li>
+		</ul>
+	</section>
+
 </section>
 
-<section>
-	<section>
-		Objects
-	</section>
-	<section>
-		Object Prototypes
-	</section>
-</section>
 
 
 				<section>
