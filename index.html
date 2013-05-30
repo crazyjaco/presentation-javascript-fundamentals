@@ -397,59 +397,59 @@ function hoistme(state) {
 					</section>
 				</section>
 
-<section>
-	<section>
-		<h1>Literals</h1>
-	</section>
-	<section>
-		<h2>Fixed values you are literally/explicitly specifying</h2>
-		<ul>
-			<li>Array Literals</li>
-			<li>Boolean Literals</li>
-			<li>Floating-Point Literals</li>
-			<li>Integers</li>
-			<li>Object Literals</li>
-			<li>String Literals</li>
-		</ul>
-	</section>
-	<section>
-		<h3>Array Literal</h3>
-		<pre><code data-trim contenteditable>
+				<section>
+					<section>
+						<h1>Literals</h1>
+					</section>
+					<section>
+						<h2>Fixed values you are literally/explicitly specifying</h2>
+						<ul>
+							<li>Array Literals</li>
+							<li>Boolean Literals</li>
+							<li>Floating-Point Literals</li>
+							<li>Integers</li>
+							<li>Object Literals</li>
+							<li>String Literals</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Array Literal</h3>
+						<pre><code data-trim contenteditable>
 var siteops = ['jim', 'alex', 'john', 'nick', 'bradley'];
-		</code></pre>
-		<h3>Object Literal</h3>
-		<pre><code data-trim contenteditable>
+						</code></pre>
+						<h3>Object Literal</h3>
+						<pre><code data-trim contenteditable>
 var beer = { type: "IPA", packaging: "bottled", microbrew: false };
 console.log(beer.type);
-		</code></pre>
-		This is JSON (JavaScript Object Notation)
-	</section>
-</section>
+						</code></pre>
+						This is JSON (JavaScript Object Notation)
+					</section>
+				</section>
 
-<section>
-	<section>
-		<h1>Objects</h1>
-	</section>
-	<section>
-		<h2>Objects</h2>
-		<p>Everything that is not a primitive is an object</p>
-		<pre><code data-trim contenteditable>
+				<section>
+					<section>
+						<h1>Objects</h1>
+					</section>
+					<section>
+						<h2>Objects</h2>
+						<p>Everything that is not a primitive is an object</p>
+						<pre><code data-trim contenteditable>
 var obj = new Object();	// new keyword w/ a constructor creates an object
 var obj = {};		// Less verbose
-		</code></pre>
-		<p>Objects are compared by reference.<br/>
-			Primitives are compared by value</p>
-		<pre><code data-trim contenteditable>
+						</code></pre>
+						<p>Objects are compared by reference.<br/>
+							Primitives are compared by value</p>
+						<pre><code data-trim contenteditable>
 var obj1 = {foo: 42};
 var obj2 = {foo: 42};
 
 obj1 === obj2		// false
 obj1.foo === obj2.foo 	// true
-		</code></pre>
-	</section>
-	<section>
-		Property names are always strings. Values can be anything
-		<pre><code data-trim contenteditable>
+						</code></pre>
+					</section>
+					<section>
+						Property names are always strings. Values can be anything
+						<pre><code data-trim contenteditable>
 var rps = {
 	values: ["rock", "paper", "scissors"];
 	attempts: 5;
@@ -478,25 +478,25 @@ var rps = {
 	}
 }
 
-		</code></pre>
-	</section>
-	<section>
-		Object Prototypes
-	</section>
-</section>
+						</code></pre>
+					</section>
+					<section>
+						Object Prototypes
+					</section>
+				</section>
 
 
-<section>
-	Coersion and Comparison
-</section>
+				<section>
+					Coersion and Comparison
+				</section>
 
-<section>
-	<section>
-		<h1>== vs ===</h1>
-	</section>
-	<section>
-		<h2>=== ("Strict Equality Comparison")</h2>
-		<pre><code data-trim contenteditable>
+				<section>
+					<section>
+						<h1>== vs ===</h1>
+					</section>
+					<section>
+						<h2>=== ("Strict Equality Comparison")</h2>
+						<pre><code data-trim contenteditable>
 // Type(x)          Values                                Result
 // Type(x) different from Type(y)...                      false
 // Undefined or Null                                      true
@@ -505,13 +505,13 @@ var rps = {
 // Boolean          x and y are both true or both false   true
 // Object           x and y reference same object         true
 // Otherwise...                                           false
-		</code></pre>
-		(Copied from Ben Alman's JS notes)
-	</section>
-	<section>
-		<h2>== ("Abstract Equality Comparison")</h2>
-		Measure of Truthy vs Falsy
-		<pre><code data-trim contenteditable>
+						</code></pre>
+						(Copied from Ben Alman's JS notes)
+					</section>
+					<section>
+						<h2>== ("Abstract Equality Comparison")</h2>
+						Measure of Truthy vs Falsy
+						<pre><code data-trim contenteditable>
 // Type(x)              Type(y)               Result
 // If x and y are the same type...            Follow === operator rules.
 // Null                 Undefined             true
@@ -523,50 +523,50 @@ var rps = {
 // String or Number     Object                x == toPrimitive(y)
 // Object               String or Number      toPrimitive(x) == y
 // Otherwise...                               false
-		</code></pre>
-		(Copied from Ben Alman's JS notes)
-	</section>
-	<section>
-		<h3>5 falsy values (that are not actually false)</h3>
-		<ul>
-			<li>0</li>
-			<li>""</li>
-			<li>null</li>
-			<li>undefined</li>
-			<li>NaN</li>
-		</ul>
-		<p>falsy values coerce to false</p>
-		<p>Everything that is not falsy is truthy</p>
-		<pre><code data-trim contenteditable>
+						</code></pre>
+						(Copied from Ben Alman's JS notes)
+					</section>
+					<section>
+						<h3>5 falsy values (that are not actually false)</h3>
+						<ul>
+							<li>0</li>
+							<li>""</li>
+							<li>null</li>
+							<li>undefined</li>
+							<li>NaN</li>
+						</ul>
+						<p>falsy values coerce to false</p>
+						<p>Everything that is not falsy is truthy</p>
+						<pre><code data-trim contenteditable>
 if(null) { This will not execute }			
 if(!null) { This will execute }
-		</code></pre>
-	</section>
-	<section>
-		<h3>Falsy Quirks</h3>
-		<p>"", 0 and false are all equivalent</p>
-		<p>null and undefined are equivalent</p>
-		<pre><code data-trim contenteditable>
+						</code></pre>
+					</section>
+					<section>
+						<h3>Falsy Quirks</h3>
+						<p>"", 0 and false are all equivalent</p>
+						<p>null and undefined are equivalent</p>
+						<pre><code data-trim contenteditable>
 null == undefined  // true
 null === undefined // false
-		</code></pre>
-		<p>NaN never does what you expect</p>
-		<pre><code data-trim contenteditable>
+						</code></pre>
+						<p>NaN never does what you expect</p>
+						<pre><code data-trim contenteditable>
 NaN == NaN  // false
 NaN === NaN // false
-		</code></pre>
-		...And lots more
-	</section>
-	<section>
-		<h3>Takeaways</h3>
-		<ul>
-			<li>When checking for falsy/truthy, pass directly into if(), negating if necessary</li>
-			<li>Always use === or !== when comparing for truth or fallacy</li>
-			<li>Use == or != when comparing to null or undefined</li>
-		</ul>
-	</section>
+						</code></pre>
+						...And lots more
+					</section>
+					<section>
+						<h3>Takeaways</h3>
+						<ul>
+							<li>When checking for falsy/truthy, pass directly into if(), negating if necessary</li>
+							<li>Always use === or !== when comparing for truth or fallacy</li>
+							<li>Use == or != when comparing to null or undefined</li>
+						</ul>
+					</section>
 
-</section>
+				</section>
 
 
 
